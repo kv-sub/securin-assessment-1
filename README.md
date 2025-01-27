@@ -60,20 +60,6 @@ At the bottom of the page, you can navigate between pages of CVEs using the "Pre
 -3. Filtering CVEs:
 You can use the following API endpoints to filter the CVEs based on different parameters:
 
-Filter by Year:
-
-GET /api/cves/year/<year>
-Example: GET /api/cves/year/2021
-Filter by CVSS Score:
-
-GET /api/cves/score/<score>
-Example: GET /api/cves/score/7.5
-Filter by Modified Date:
-
-GET /api/cves/modified/<days>
-Example: GET /api/cves/modified/30 (CVEs modified in the last 30 days)
-4. Styling:
-The table has a responsive design and includes hover effects, alternating row colors, and improved spacing. The layout adjusts for different screen sizes, ensuring a good user experience across both desktop and mobile devices.
 
 ![image](https://github.com/user-attachments/assets/514fd6a7-5c1d-4553-b2aa-d3de96641a0f)
 
