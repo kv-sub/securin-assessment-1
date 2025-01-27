@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVE List</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <h1>CVE List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>CVE ID</th>
+                <th>Description</th>
+                <th>CVSS Score</th>
+                <th>Published Date</th>
+                <th>Modified Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cve in cves %}
+            <tr>
+                <td>{{ cve.cve_id }}</td>
+                <td>{{ cve.description }}</td>
+                <td>{{ cve.cvss_score }}</td>
+                <td>{{ cve.published_date }}</td>
+                <td>{{ cve.modified_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <p>Page {{ page }}</p>
+        <a href="/cves/list?page={{ page - 1 }}" {% if page == 1 %} style="pointer-events: none; opacity: 0.6;" {% endif %}>Previous</a> |
+        <a href="/cves/list?page={{ page + 1 }}">Next</a>
+    </div>
+
+</body>
+</html>
