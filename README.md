@@ -39,23 +39,25 @@ Install the necessary dependencies listed in requirements.txt (if using a virtua
 pip install -r requirements.txt
 Run the Flask web application:
 
-##python app.py
+python app.py
+
 The application will start running on http://127.0.0.1:5000/ (by default).
 
 Open a web browser and go to http://127.0.0.1:5000/ to see the CVE list.
-##Application Overview
-1. Displaying CVEs:
-The CVEs will be displayed in a table format with the following columns:
+## Application Overview
+-1. Displaying CVEs:
+-The CVEs will be displayed in a table format with the following columns:
 
-CVE ID
-Description
-CVSS Score
-Published Date
-Modified Date
-2. Pagination:
+-CVE ID 
+-Description/
+-CVSS Score/
+-Published Date
+-Modified Date
+
+-2. Pagination:
 At the bottom of the page, you can navigate between pages of CVEs using the "Previous" and "Next" links. The current page number is also displayed.
 
-3. Filtering CVEs:
+-3. Filtering CVEs:
 You can use the following API endpoints to filter the CVEs based on different parameters:
 
 Filter by Year:
@@ -75,7 +77,7 @@ The table has a responsive design and includes hover effects, alternating row co
 
 ![image](https://github.com/user-attachments/assets/8ba1bdf3-2707-4c35-98ef-11b5478e5a76)
 
-##How to Use
+## How to Use
 Navigating CVEs:
 
 Use the pagination links to move through different pages of CVEs.
@@ -93,10 +95,10 @@ You can customize the CVE data and pagination as needed:
 
 CVE Data: Update the cves list in app.py with your own data or connect to an external database/API to fetch CVE data dynamically.
 Styling: Modify the style.css to change the appearance of the page according to your preferences.
-License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Acknowledgments
+## Acknowledgments
 Flask: A lightweight WSGI web application framework in Python.
 Jinja2: A modern and designer-friendly templating engine for Python.
 CSS: Styles used to create a polished and user-friendly interface.
