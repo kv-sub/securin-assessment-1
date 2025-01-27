@@ -4,39 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CVE List</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 </head>
 <body>
+    <div class="container mt-5">
+        <h1>CVE List</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th><a href="{{ url_for('list_cves', page=page, resultsPerPage=results_per_page, sort='cve_id', direction='ASC') }}">CVE ID</a></th>
+                    <th>Description</th>
+                    <th><a href="{{ url_for('list_cves', page=page, resultsPerPage=results_per_page, sort='published_date', direction='ASC') }}">Published Date</a></th>
+                    <th><a href="{{ url_for('list_cves', page=page, resultsPerPage=results_per_page, sort='modified_date', direction='ASC') }}">Modified Date</a></th>
+                    <th><a href="{{ url_for('list_cves', page=page, resultsPerPage=results_per_page, sort='status', direction='ASC') }}">Status</a></th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cve in cves %}
+                <tr>
+                    <td>{{ cve.cve_id }}</td>
+                    <td>{{ cve.description }}</td>
+                    <td>{{ cve.published_date }}</td>
+                    <td>{{ cve.modified_date }}</td>
+                    <td>{{ cve.status }}</td>
+                    <td><a href="{{ url_for('get_cve_by_id', cve_id=cve.cve_id) }}" class="btn btn-info">View Details</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    <h1>CVE List</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>CVE ID</th>
-                <th>Description</th>
-                <th>CVSS Score</th>
-                <th>Published Date</th>
-                <th>Modified Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for cve in cves %}
-            <tr>
-                <td>{{ cve.cve_id }}</td>
-                <td>{{ cve.description }}</td>
-                <td>{{ cve.cvss_score }}</td>
-                <td>{{ cve.published_date }}</td>
-                <td>{{ cve.modified_date }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    <div class="pagination">
-        <p>Page {{ page }}</p>
-        <a href="/cves/list?page={{ page - 1 }}" {% if page == 1 %} style="pointer-events: none; opacity: 0.6;" {% endif %}>Previous</a> |
-        <a href="/cves/list?page={{ page + 1 }}">Next</a>
+        <div class="pagination">
+            {% if page > 1 %}
+                <a href="{{ url_for('list_cves', page=page-1, resultsPerPage=results_per_page, sort=sort_order, direction=sort_direction) }}" class="btn btn-primary">Previous</a>
+            {% endif %}
+            {% if page * results_per_page < total_records %}
+                <a href="{{ url_for('list_cves', page=page+1, resultsPerPage=results_per_page, sort=sort_order, direction=sort_direction) }}" class="btn btn-primary">Next</a>
+            {% endif %}
+        </div>
     </div>
-
 </body>
 </html>
