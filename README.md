@@ -75,7 +75,11 @@ Example: GET /api/cves/modified/30 (CVEs modified in the last 30 days)
 4. Styling:
 The table has a responsive design and includes hover effects, alternating row colors, and improved spacing. The layout adjusts for different screen sizes, ensuring a good user experience across both desktop and mobile devices.
 
-![image](https://github.com/user-attachments/assets/8ba1bdf3-2707-4c35-98ef-11b5478e5a76)
+![image](https://github.com/user-attachments/assets/514fd6a7-5c1d-4553-b2aa-d3de96641a0f)
+
+![image](https://github.com/user-attachments/assets/40beb048-4478-4979-90ab-a75b06eea885)
+
+
 
 ## How to Use
 Navigating CVEs:
