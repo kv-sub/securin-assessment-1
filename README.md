@@ -1,32 +1,30 @@
-##CVE List Web Application
+# CVE List Web Application
+
 This is a simple web application that displays a list of CVEs (Common Vulnerabilities and Exposures) with their details such as CVE ID, description, CVSS score, published date, and modified date. The application includes pagination to navigate through multiple pages of CVEs.
 
-##Features
-##Display CVEs in a tabular format.
-Pagination support to navigate through large datasets.
-CSS styling for better UI/UX, including hover effects and alternating row colors.
-Responsive design for mobile and desktop views.
-##Requirements
+## Features
+
+- Display CVEs in a tabular format.
+- Pagination support to navigate through large datasets.
+- CSS styling for better UI/UX, including hover effects and alternating row colors.
+- Responsive design for mobile and desktop views.
+- API endpoints to filter CVEs based on year, CVSS score, and modified date.
+
+## Requirements
+
 Before you begin, ensure that you have the following installed on your system:
 
-Python 3.6+ (for running the web application)
-Flask (web framework for Python)
-Jinja2 (templating engine for HTML rendering)
+- **Python 3.6+** (for running the web application)
+- **Flask** (web framework for Python)
+- **Jinja2** (templating engine for HTML rendering)
+- **requests** (for fetching CVE data from an external source)
+- **mysql-connector-python** (for connecting to MySQL database)
+
 You can install the necessary Python packages via pip:
 
+    ```bash
+    pip install flask requests mysql-connector-python
 
-pip install flask
-##Project Structure
-
-CVE-List/
-│
-├── app.py                 # Main Python file to run the Flask application
-├── templates/
-│   └── index.html         # HTML template for displaying CVEs
-├── static/
-│   └── style.css          # CSS file for styling the page
-├── requirements.txt       # Python dependencies
-└── README.md              # This README file
 ##File Descriptions
 app.py: Contains the Flask web application logic. It handles routes, requests, and serves the CVE data.
 templates/index.html: The HTML template that displays the list of CVEs and supports pagination.
@@ -36,12 +34,12 @@ Clone or download the repository to your local machine.
 
 git clone https://github.com/your-username/CVE-List.git
 cd CVE-List
-##Install the necessary dependencies listed in requirements.txt (if using a virtual environment, activate it before proceeding).
+Install the necessary dependencies listed in requirements.txt (if using a virtual environment, activate it before proceeding).
 
 pip install -r requirements.txt
-##Run the Flask web application:
+Run the Flask web application:
 
-python app.py
+##python app.py
 The application will start running on http://127.0.0.1:5000/ (by default).
 
 Open a web browser and go to http://127.0.0.1:5000/ to see the CVE list.
@@ -57,18 +55,36 @@ Modified Date
 2. Pagination:
 At the bottom of the page, you can navigate between pages of CVEs using the "Previous" and "Next" links. The current page number is also displayed.
 
-3. Styling:
+3. Filtering CVEs:
+You can use the following API endpoints to filter the CVEs based on different parameters:
+
+Filter by Year:
+
+GET /api/cves/year/<year>
+Example: GET /api/cves/year/2021
+Filter by CVSS Score:
+
+GET /api/cves/score/<score>
+Example: GET /api/cves/score/7.5
+Filter by Modified Date:
+
+GET /api/cves/modified/<days>
+Example: GET /api/cves/modified/30 (CVEs modified in the last 30 days)
+4. Styling:
 The table has a responsive design and includes hover effects, alternating row colors, and improved spacing. The layout adjusts for different screen sizes, ensuring a good user experience across both desktop and mobile devices.
 
-![image](https://github.com/user-attachments/assets/2522c7fa-5946-4b77-96da-08cbafbccf9f)
+![image](https://github.com/user-attachments/assets/8ba1bdf3-2707-4c35-98ef-11b5478e5a76)
 
-
-#How to Use
+##How to Use
 Navigating CVEs:
 
 Use the pagination links to move through different pages of CVEs.
 The "Previous" link will be disabled on the first page.
 The "Next" link will take you to the next page of CVEs.
+Filtering CVEs:
+
+You can use the provided API endpoints to filter the CVEs by year, CVSS score, or modified date.
+You can test these endpoints by visiting the corresponding URL in your browser or using tools like Postman.
 Adding/Editing Data:
 
 To add or modify the CVE data, you would need to update the app.py file, where the data is served (currently, it's a static list in the example).
@@ -84,3 +100,5 @@ Acknowledgments
 Flask: A lightweight WSGI web application framework in Python.
 Jinja2: A modern and designer-friendly templating engine for Python.
 CSS: Styles used to create a polished and user-friendly interface.
+requests: A simple HTTP library for Python, used to fetch CVE data from external sources.
+MySQL: Used to store CVE details and serve them dynamically via the web interface.
