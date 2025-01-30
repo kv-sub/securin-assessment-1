@@ -61,9 +61,10 @@ At the bottom of the page, you can navigate between pages of CVEs using the "Pre
 You can use the following API endpoints to filter the CVEs based on different parameters:
 
 
-![image](https://github.com/user-attachments/assets/514fd6a7-5c1d-4553-b2aa-d3de96641a0f)
+![image](https://github.com/user-attachments/assets/db367275-8677-4f2d-a301-8fafab636a7e)
+![image](https://github.com/user-attachments/assets/415b5301-969a-4145-bb94-e32b134b6686)
 
-![image](https://github.com/user-attachments/assets/40beb048-4478-4979-90ab-a75b06eea885)
+![image](https://github.com/user-attachments/assets/84810cfd-1035-4f02-a9c0-e03e26b8c5ae)
 
 
 
