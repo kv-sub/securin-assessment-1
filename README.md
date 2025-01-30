@@ -25,7 +25,7 @@ You can install the necessary Python packages via pip:
     ```bash
     pip install flask requests mysql-connector-python
 
-##File Descriptions
+## File Descriptions
 app.py: Contains the Flask web application logic. It handles routes, requests, and serves the CVE data.
 templates/index.html: The HTML template that displays the list of CVEs and supports pagination.
 static/style.css: The stylesheet used to enhance the look and feel of the web page, with custom styles for the table, pagination, and responsive design.
